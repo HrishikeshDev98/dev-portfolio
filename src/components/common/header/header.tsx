@@ -1,7 +1,7 @@
 'use client'
 
-import Link from 'next/link'
 import { NavLink } from './nav-link'
+import { MobileMenu } from './mobile-menu'
 import { NAV_LINKS } from '@/constants/navigation'
 import { useEffect, useState } from 'react'
 
@@ -16,22 +16,25 @@ const Header = () => {
   }, [])
 
   return (
-    <header className="fixed top-5 inset-x-4 z-50 mx-auto">
-      <div className="container md:mx-auto w-full md:w-auto px-0">
-        <div className="navbar relative w-full rounded-full border border-gray-200 backdrop-blur-md bg-white/80">
-          <div
-            className={`flex items-center justify-between px-5 md:px-6 transition-all duration-300 ${
-              scrolled ? 'py-4' : 'py-5'
-            }`}
-          >
-            <Link href="/" className="cursor-pointer flex items-center font-bold text-xl">
-              My App
-            </Link>
+    <header className="fixed top-5 w-full flex items-center justify-center z-50 px-4">
+      <nav className="navbar rounded-xl px-6 py-4 w-full max-w-5xl relative">
+        <div className="flex items-center justify-between">
+          {/* Logo */}
+          <span className="text-2xl font-bold text-white tracking-tight select-none">H</span>
 
-  
-          </div>
+          {/* Desktop nav */}
+          <ul className="hidden lg:flex items-center gap-8">
+            {NAV_LINKS.map((link) => (
+              <li key={link.href}>
+                <NavLink href={link.href}>{link.name}</NavLink>
+              </li>
+            ))}
+          </ul>
+
+          {/* Mobile hamburger + dropdown */}
+          <MobileMenu menus={NAV_LINKS} />
         </div>
-      </div>
+      </nav>
     </header>
   )
 }

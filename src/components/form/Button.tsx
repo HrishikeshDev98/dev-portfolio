@@ -21,26 +21,25 @@ const Button: React.FC<ButtonProps> = ({
   ...props
 }) => {
   const buttonClass = cn(
+    'button text-light flex items-center gap-2  px-10 py-4',
     sizeClasses[size],
-    'button w-fit',
-    `button-${variant}`,
-    icon && 'flex items-center justify-center gap-2',
+    `button-${variant} `,
     className,
   )
 
   if (link) {
     return (
-      <Link href={link} className={buttonClass} {...props}>
+      <Link href={link} className={buttonClass} {...(props as object)}>
         <span>{text}</span>
-        {icon && <span className="ms-2">{icon}</span>}
+        {icon && <span>{icon}</span>}
       </Link>
     )
   }
 
   return (
-    <button type={type} className={buttonClass} {...props}>
+    <button type={type} className={buttonClass} {...(props as object)}>
       <span>{text}</span>
-      {icon && <span className="ms-2">{icon}</span>}
+      {icon && <span>{icon}</span>}
     </button>
   )
 }

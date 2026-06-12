@@ -20,7 +20,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
 
   return (
     <html className={`${inter.variable} overflow-x-hidden`} lang="en">
-      <body className="bg-primary">
+      <body className="bg-primary ">
         <Header />
         <main>{children}</main>
         <Footer />

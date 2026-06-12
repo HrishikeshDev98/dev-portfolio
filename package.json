@@ -13,7 +13,8 @@
     "lint": "cross-env NODE_OPTIONS=--no-deprecation next lint",
     "payload": "cross-env NODE_OPTIONS=--no-deprecation payload",
     "start": "cross-env NODE_OPTIONS=--no-deprecation next start",
-    "seed:notices": "tsx --env-file=.env scripts/seed-notice.ts"
+    "seed:notices": "tsx --env-file=.env scripts/seed-notice.ts",
+    "prepare": "husky"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.1.1",
@@ -56,6 +57,8 @@
     "autoprefixer": "^10.4.21",
     "eslint": "^9.16.0",
     "eslint-config-next": "15.3.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.0.7",
     "postcss": "^8.5.5",
     "prettier": "^3.4.2",
     "stylelint": "^16.20.0",

@@ -3,7 +3,7 @@
 @theme {
   --font-body: var(--font-inter), sans-serif;
 
-  --color-primary: #1c4595;
+  --color-primary: #000319;
   --color-secondary: #cbacf9;
   --color-light: #ffffff;
   --color-dark: #212121;
@@ -58,6 +58,10 @@
     @apply container mx-auto px-4;
   }
 
+  .navbar {
+    background: linear-gradient(to right, #04071d 0%, #0c0e23 100%);
+  }
+
   .tab-fade-in {
     animation: tab-fade-in 0.4s ease;
   }
@@ -67,17 +71,24 @@
   }
 
   .heading {
-    font-size: 48px;
-    font-weight: 700;
+    font-size: 72px;
     color: var(--color-dark);
     line-height: 1;
+    letter-spacing: -3.6px;
+    font-weight: 700;
   }
-
   .sub-heading {
     font-size: 38px;
     font-weight: 700;
     color: var(--color-primary);
     line-height: 1.2;
+  }
+
+  .banner {
+    background-image: url('../images/banner-grid.png'), url('../images/banner-bg.png');
+    background-repeat: no-repeat, no-repeat;
+    background-size: cover, cover;
+    background-position: center, center;
   }
 
   @media (max-width: 767px) {
@@ -96,11 +107,21 @@
   }
 
   .button {
-    @apply text-xs sm:text-sm font-semibold xl:text-base px-3 py-1.5 sm:px-4 sm:py-2 xl:px-7 xl:py-2.5 rounded-md xl:rounded-lg bg-primary text-light border border-transparent cursor-pointer transition-all duration-300 ease-in-out hover:bg-transparent hover:text-primary hover:border-primary flex items-center justify-center;
+    position: relative;
+    font-size: 18px;
   }
 
-  .button-outlined {
-    @apply bg-transparent text-primary border border-primary hover:bg-primary hover:text-light transition-all duration-300 ease-in-out;
+  .button::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 14px;
+    padding: 1px;
+    background: linear-gradient(180deg, rgba(105, 113, 162, 0.4) 0%, rgba(39, 42, 60, 0.5) 100%);
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask-composite: exclude;
   }
 
   .font-heading {
@@ -113,12 +134,6 @@
 
   .font-inter {
     font-family: var(--font-inter), sans-serif;
-  }
-
-  .navbar {
-    backdrop-filter: blur(16px) saturate(180%);
-    -webkit-backdrop-filter: blur(16px) saturate(180%);
-    background-color: rgba(255, 255, 255, 0.5);
   }
 
   .initiative-description h1 {
