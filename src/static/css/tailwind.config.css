@@ -1,15 +1,10 @@
 @import 'tailwindcss';
 
 @theme {
-  --font-heading: var(--font-cormorant), serif;
-  --font-body: var(--font-montserrat), sans-serif;
+  --font-body: var(--font-inter), sans-serif;
 
   --color-primary: #1c4595;
-  --color-text: #212121;
-  --color-background: #e0e7f2;
-  --color-background-light: #ebf2f6;
-  --color-background-alt: #f5f8fd;
-  --color-header: #212121;
+  --color-secondary: #cbacf9;
   --color-light: #ffffff;
   --color-dark: #212121;
 }
@@ -19,12 +14,13 @@
     font-family: var(--font-body);
     color: var(--color-text);
     overflow-x: hidden;
+    border: 2px solid red;
+    background-color: var(--color-background-primary);
   }
 
   h1,
   h2,
   h3 {
-    font-family: var(--font-heading);
     color: var(--color-text);
   }
 
@@ -113,6 +109,10 @@
 
   .font-body {
     font-family: var(--font-body);
+  }
+
+  .font-inter {
+    font-family: var(--font-inter), sans-serif;
   }
 
   .navbar {

@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { IoArrowBackOutline, IoHomeOutline } from 'react-icons/io5'
 
 export const metadata = {
-  title: 'Page Not Found | Villoo Poonawala Foundation',
+  title: 'Page Not Found | Hrishikesh - Developer Portfolio',
   description: 'The page you are looking for could not be found.',
 }
 
@@ -19,11 +19,7 @@ const NotFound = () => {
         <h1 className="heading mt-2" data-aos="fade-up" data-aos-delay="100">
           Page Not Found
         </h1>
-        <p
-          className="text-gray-600 mt-4 max-w-xl mx-auto"
-          data-aos="fade-up"
-          data-aos-delay="200"
-        >
+        <p className="text-gray-600 mt-4 max-w-xl mx-auto" data-aos="fade-up" data-aos-delay="200">
           Sorry, the page you are looking for doesn&apos;t exist or has been moved. Let&apos;s get
           you back on track.
         </p>

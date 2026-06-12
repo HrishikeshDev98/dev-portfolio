@@ -1,7 +1,6 @@
 'use client'
 
 import Link from 'next/link'
-import { MobileMenu } from './mobile-menu'
 import { NavLink } from './nav-link'
 import { NAV_LINKS } from '@/constants/navigation'
 import { useEffect, useState } from 'react'
@@ -29,19 +28,7 @@ const Header = () => {
               My App
             </Link>
 
-            <nav className="hidden lg:block">
-              <ul className="flex space-x-8">
-                {NAV_LINKS.map((menu) => (
-                  <div key={menu.href} className="relative group">
-                    <li>
-                      <NavLink href={menu.href}>{menu.name}</NavLink>
-                    </li>
-                  </div>
-                ))}
-              </ul>
-            </nav>
-
-            <MobileMenu menus={NAV_LINKS} />
+  
           </div>
         </div>
       </div>
