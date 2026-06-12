@@ -55,15 +55,7 @@ export const MobileMenu = ({ menus }: { menus: MenuItem[] }) => {
             const isSubmenuOpen = openSubmenu === menu.href
 
             return (
-              <li
-                key={menu.href}
-                // style={{
-                //   transition: 'opacity 0.3s ease, transform 0.3s ease',
-                //   transitionDelay: open ? `${i * 60}ms` : '0ms',
-                //   opacity: open ? 1 : 0,
-                //   transform: open ? 'translateX(0)' : 'translateX(-10px)',
-                // }}
-              >
+              <li key={menu.href}>
                 {menu.submenu ? (
                   <>
                     <button

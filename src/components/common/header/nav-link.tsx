@@ -13,7 +13,7 @@ export const NavLink = ({
   return (
     <Link
       href={href}
-      className={' text-base font-light transition-colors text-white font-semibold'}
+      className={' text-base font-extralight transition-colors text-white font-semibold'}
     >
       {children}
     </Link>
