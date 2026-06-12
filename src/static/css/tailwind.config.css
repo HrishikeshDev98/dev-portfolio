@@ -1,0 +1,329 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-heading: var(--font-cormorant), serif;
+  --font-body: var(--font-montserrat), sans-serif;
+
+  --color-primary: #1c4595;
+  --color-text: #212121;
+  --color-background: #e0e7f2;
+  --color-background-light: #ebf2f6;
+  --color-background-alt: #f5f8fd;
+  --color-header: #212121;
+  --color-light: #ffffff;
+  --color-dark: #212121;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-body);
+    color: var(--color-text);
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-heading);
+    color: var(--color-text);
+  }
+
+  h1 {
+    font-size: 54px;
+    font-weight: 700;
+  }
+
+  p {
+    font-size: 19px;
+    font-weight: 400;
+    font-family: var(--font-body);
+  }
+
+  *,
+  html,
+  body {
+    @apply m-0 p-0 outline-0 border-0;
+  }
+}
+
+@keyframes tab-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@layer components {
+  .container {
+    @apply container mx-auto px-4;
+  }
+
+  .tab-fade-in {
+    animation: tab-fade-in 0.4s ease;
+  }
+
+  .section {
+    @apply relative py-16 md:py-20;
+  }
+
+  .heading {
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--color-dark);
+    line-height: 1;
+  }
+
+  .sub-heading {
+    font-size: 38px;
+    font-weight: 700;
+    color: var(--color-primary);
+    line-height: 1.2;
+  }
+
+  @media (max-width: 767px) {
+    .heading {
+      font-size: 32px;
+      line-height: 1.15;
+    }
+
+    .sub-heading {
+      font-size: 26px;
+      line-height: 1.25;
+    }
+    p {
+      font-size: 16px;
+    }
+  }
+
+  .button {
+    @apply text-xs sm:text-sm font-semibold xl:text-base px-3 py-1.5 sm:px-4 sm:py-2 xl:px-7 xl:py-2.5 rounded-md xl:rounded-lg bg-primary text-light border border-transparent cursor-pointer transition-all duration-300 ease-in-out hover:bg-transparent hover:text-primary hover:border-primary flex items-center justify-center;
+  }
+
+  .button-outlined {
+    @apply bg-transparent text-primary border border-primary hover:bg-primary hover:text-light transition-all duration-300 ease-in-out;
+  }
+
+  .font-heading {
+    font-family: var(--font-heading);
+  }
+
+  .font-body {
+    font-family: var(--font-body);
+  }
+
+  .navbar {
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+
+  .initiative-description h1 {
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--color-dark);
+    line-height: 1;
+    font-family: var(--font-heading);
+    margin-bottom: 1rem;
+  }
+
+  .initiative-description h2 {
+    font-size: 38px;
+    font-weight: 700;
+    color: var(--color-primary);
+    line-height: 1.2;
+    font-family: var(--font-heading);
+    margin-bottom: 0.75rem;
+  }
+
+  .initiative-description h3 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--color-primary);
+    line-height: 1.2;
+    font-family: var(--font-heading);
+    margin-bottom: 0.5rem;
+  }
+
+  @media (max-width: 767px) {
+    .initiative-description h1 {
+      font-size: 32px;
+      line-height: 1.15;
+    }
+
+    .initiative-description h2 {
+      font-size: 26px;
+      line-height: 1.25;
+    }
+
+    .initiative-description h3 {
+      font-size: 22px;
+      line-height: 1.25;
+    }
+  }
+
+  .know-more-button {
+    position: relative;
+    cursor: pointer;
+  }
+
+  .submenu-card {
+    backdrop-filter: blur(10px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(255, 255, 255, 0.9);
+  }
+
+  .know-more-button::after {
+    content: '';
+    width: 0;
+    height: 2px;
+    background-color: var(--color-primary);
+    position: absolute;
+    right: 0;
+    bottom: -4px;
+    transition: width 0.5s ease-in-out;
+  }
+
+  .know-more-button:hover::after,
+  .group:hover .know-more-button::after {
+    width: 100%;
+  }
+}
+
+@media (min-width: 1280px) and (max-width: 1399px) {
+  .container {
+    max-width: 1200px;
+  }
+}
+
+@media (min-width: 96rem) {
+  .container {
+    max-width: 80rem;
+  }
+}
+
+.submenu {
+  @apply block px-2 py-0.5 text-base relative z-10 text-dark transition-colors duration-200;
+  /* Remove hover:text-light from here — it won't coordinate with the pseudo-element timing */
+}
+
+.submenu::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #1c4595;
+  border-radius: 4px;
+  transition: width 0.4s ease-in-out;
+  z-index: -1; /* Behind the text */
+}
+
+.submenu:hover::before {
+  width: 100%;
+}
+
+.submenu:hover {
+  @apply text-white; /* or text-light — this changes the actual text */
+  color: white !important;
+}
+
+/* EventModal Swiper */
+.event-swiper .swiper-pagination {
+  position: static;
+  margin-top: 12px;
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
+
+.event-swiper .swiper-bullet {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 9999px;
+  background: #d1d5db;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.event-swiper .swiper-bullet-active {
+  background: var(--color-primary);
+}
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-primary) var(--color-background-light);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-background-light);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-primary);
+}
+
+.inner-page-banner-gradient {
+  background: radial-gradient(36.03% 72.49% at 69.44% 43.73%, #ffffff 0%, #cadef6 100%) no-repeat
+    center center;
+}
+
+.member-desc a {
+  color: var(--color-primary);
+}
+
+.member-desc a:hover {
+  text-decoration: underline;
+}
+
+.team-section {
+  position: relative;
+  z-index: 20 !important;
+}
+
+.grid-bg-layer {
+  grid-row: 1 / 3;
+  grid-column: 1;
+
+  position: absolute;
+  top: -150px;
+  bottom: 0;
+
+  left: 50%;
+  transform: translateX(-50%);
+  width: 105vw;
+
+  z-index: -1;
+  pointer-events: none; /* Allows user interactions to pass right through it */
+  background: radial-gradient(36.03% 72.49% at 69.44% 43.73%, #ffffff 0%, #cadef6 100%) no-repeat
+    center center;
+}
+
+.event-swiper .swiper-pagination-bullet {
+  width: 9px !important;
+  height: 9px !important;
+  border-radius: 9999px !important;
+  background-color: var(--color-primary) !important;
+  opacity: 0.4 !important;
+  margin: 0 !important;
+  transition:
+    width 0.3s ease-in-out,
+    opacity 0.3s ease-in-out,
+    border-radius 0.3s ease-in-out !important;
+}
+
+.event-swiper .swiper-pagination-bullet-active {
+  width: 30px !important;
+  opacity: 1 !important;
+  background-color: var(--color-primary) !important;
+  margin: 0 !important;
+}
