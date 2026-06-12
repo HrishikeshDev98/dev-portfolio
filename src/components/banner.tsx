@@ -13,12 +13,12 @@ const Banner = () => {
           Transorming Concepts into <br />
           Seamless <span className="text-secondary"> User Experiences</span>
         </h2>
-        <p className="text-lg text-center font-light mb-4 text-light  tracking-widest">
+        <p className="text-lg text-center font-light mb-6 text-light  tracking-widest">
           Hi! I’m Hrishikesh, a Next.js Developer based in India
         </p>
         <Button
           text="Github"
-          className=" text-center"
+          className="max-w-fit flex mx-auto text-center"
           link="https://github.com/HrishikeshDev98"
           icon={<FiGithub />}
         />

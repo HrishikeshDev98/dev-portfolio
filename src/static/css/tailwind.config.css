@@ -74,7 +74,7 @@
     font-size: 72px;
     color: var(--color-dark);
     line-height: 1;
-    letter-spacing: -3.6px;
+    /* letter-spacing: -1.6px; */
     font-weight: 700;
   }
   .sub-heading {
@@ -109,9 +109,12 @@
   .button {
     position: relative;
     font-size: 18px;
+    overflow: hidden;
+    background: linear-gradient(to right, #0c0e23 0%, #04071d 100%);
   }
 
   .button::before {
+    z-index: -1;
     content: '';
     position: absolute;
     inset: 0;
