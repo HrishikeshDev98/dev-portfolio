@@ -1,6 +1,8 @@
 import React from 'react'
 import Image from 'next/image'
 import WorkImage1 from '@/static/images/work/work-1.png'
+import Button from './form/Button'
+import { IoMdCopy } from 'react-icons/io'
 
 const TIMEZONES = [
   { label: 'USA', city: 'Boston', offset: 'UTC-5' },
@@ -29,7 +31,7 @@ const Work = () => {
             </div>
           </div>
 
-          <div className="bg-[#10132e] border border-white/10 rounded-3xl p-6 flex flex-col gap-4">
+          <div className=" border border-white/10 rounded-3xl p-6 flex flex-col gap-4">
             <p className="text-white font-semibold text-base leading-snug">
               I&apos;m very flexible with time zone communications
             </p>
@@ -47,7 +49,7 @@ const Work = () => {
           </div>
 
           {/* Tech stack card */}
-          <div className="bg-[#10132e] border border-white/10 rounded-3xl p-6 flex flex-col gap-4">
+          <div className=" border border-white/10 rounded-3xl p-6 flex flex-col gap-4">
             <p className="text-white font-semibold text-base">My tech stack</p>
             <div className="flex flex-wrap gap-2">
               {TECH_STACK.map((tech) => (
@@ -63,53 +65,30 @@ const Work = () => {
         </div>
 
         {/* Bottom grid — 3 equal columns */}
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-rows-2 grid-cols-3 gap-4">
           {/* Tech enthusiast + email CTA stacked */}
           <div className="flex flex-col gap-4">
-            <div className="bg-[#10132e] border border-white/10 rounded-3xl p-6 flex-1">
+            <div className=" border border-white/10 rounded-3xl p-6 flex-1">
               <p className="text-white font-semibold text-base leading-snug">
                 Tech enthusiast with a passion for development.
               </p>
             </div>
-            <div className="bg-[#10132e] border border-white/10 rounded-3xl p-6">
+            <div className=" border border-white/10 rounded-3xl p-6">
               <p className="text-white font-semibold text-sm mb-4 leading-snug">
                 Do you want to start a project together?
               </p>
-              <div className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-lg px-3 py-2 cursor-pointer hover:bg-white/10 transition-colors">
-                <span className="text-white/40 text-xs">Copy my email address</span>
-              </div>
+              <Button text="Copy my email address" icon={<IoMdCopy size={20} />} />
             </div>
           </div>
 
           {/* Currently building */}
-          <div className="bg-[#10132e] border border-white/10 rounded-3xl p-6 flex flex-col justify-end h-[400px]">
+          <div className=" col-span-2 border border-white/10 rounded-3xl p-6 flex flex-col justify-end h-[400px]">
             <p className="text-secondary text-xs uppercase tracking-widest mb-3 font-medium">
               The Inside Scoop
             </p>
             <p className="text-white font-bold text-2xl leading-snug">
               Currently building a JS Animation library
             </p>
-          </div>
-
-          {/* Code snippet */}
-          <div className="h-[400px] border-gray-200 border-[1px] border-white/10 rounded-3xl bg-[#10132e] p-6 overflow-hidden">
-            <pre className="text-sm font-mono leading-7 select-none">
-              <span className="text-white/30">{'// importing a single module'}</span>
-              {'\n'}
-              <span className="text-purple-400">{'import '}</span>
-              <span className="text-white">{'moduleName '}</span>
-              <span className="text-purple-400">{'from '}</span>
-              <span className="text-emerald-400">{"'modulePath'"}</span>
-              <span className="text-white">;</span>
-              {'\n\n'}
-              <span className="text-white/30">{'// importing multiple modules'}</span>
-              {'\n'}
-              <span className="text-purple-400">{'import '}</span>
-              <span className="text-white">{'{ module1, module2 } '}</span>
-              <span className="text-purple-400">{'from '}</span>
-              <span className="text-emerald-400">{"'modulePath'"}</span>
-              <span className="text-white">;</span>
-            </pre>
           </div>
         </div>
       </div>
