@@ -4,7 +4,7 @@ import { FiGithub } from 'react-icons/fi'
 
 const Banner = () => {
   return (
-    <div className="section pt-[200px] h-full md:h-[90vh]  banner">
+    <div className="section pt-[250px] h-full md:min-h-[90vh]  banner">
       <div className="container">
         <p className="text-base text-center font-light mb-2 text-light uppercase tracking-widest">
           Crafting Dynamic Web Solutions with Nextjs Expertise
