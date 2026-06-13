@@ -37,20 +37,23 @@ const Work = () => {
           </div>
 
           <div className="border border-white/10 rounded-3xl p-6 flex flex-col justify-center gap-4 relative overflow-hidden h-[320px]">
-            <p className="text-white font-semibold text-[24px] relative z-10">My tech stack</p>
+            <p className="text-light  text-base font-extralight relative z-10">
+              I constantly try to improve
+            </p>
+            <p className="text-light font-semibold text-[24px] relative z-10">My tech stack</p>
             <TechStackCarousel />
           </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           <div className="flex flex-col gap-4">
-            <div className="border border-white/10 rounded-3xl p-6 flex-1">
-              <p className="text-white text-[24px] text-center font-semibold text-base leading-snug">
+            <div className="border border-light/10 rounded-3xl p-6 flex-1">
+              <p className="text-light text-[24px] text-center font-semibold text-base leading-snug">
                 Tech enthusiast with a passion for development.
               </p>
             </div>
-            <div className="border border-white/10 rounded-3xl p-6">
-              <p className="text-white font-semibold text-[24px] text-center mb-4 leading-snug">
+            <div className="border border-light/10 rounded-3xl p-6">
+              <p className="text-light font-semibold text-[24px] text-center mb-4 leading-snug">
                 Do you want to start a project together?
               </p>
               <Button
@@ -61,11 +64,11 @@ const Work = () => {
             </div>
           </div>
 
-          <div className="lg:col-span-2 border border-white/10 rounded-3xl p-6 flex flex-col justify-end h-[300px] md:h-[400px]">
+          <div className="lg:col-span-2 border border-light/10 rounded-3xl p-6 flex flex-col justify-end h-[300px] md:h-[400px]">
             <p className="text-secondary text-xs uppercase tracking-widest mb-3 font-medium">
               The Inside Scoop
             </p>
-            <p className="text-white font-bold text-2xl leading-snug">
+            <p className="text-light font-bold text-2xl leading-snug">
               Currently building a JS Animation library
             </p>
           </div>
