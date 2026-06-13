@@ -1,13 +1,17 @@
 'use client'
 
 import { useRef } from 'react'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { Autoplay } from 'swiper/modules'
+import Image from 'next/image'
+
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import 'swiper/css'
+import { Autoplay } from 'swiper/modules'
+import { Swiper, SwiperSlide } from 'swiper/react'
+
 import { TESTIMONIALS } from '@/constants'
+
+import BgImage from '@/static/images/testimonials/bg.png'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -18,7 +22,12 @@ const TestimonialCard = ({
   quote,
   initials,
 }: (typeof TESTIMONIALS)[number]) => (
-  <div className="h-full flex flex-col justify-between border border-white/10 rounded-2xl md:rounded-3xl p-5 md:p-8 bg-white/[0.03]">
+  <div className="relative h-full flex flex-col justify-between border border-white/10 rounded-2xl md:rounded-3xl p-3 md:p-5">
+    <Image
+      src={BgImage}
+      className="absolute inset-0 w-full h-full object-cover rounded-2xl md:rounded-3xl -z-10"
+      alt="bg"
+    />
     <p className="text-light/80 text-sm md:text-base leading-relaxed font-light">{quote}</p>
     <div className="flex items-center gap-3 mt-5 md:mt-8">
       <div className="w-10 h-10 md:w-11 md:h-11 rounded-full bg-secondary/20 border border-secondary/30 flex items-center justify-center shrink-0">
@@ -62,7 +71,7 @@ const Testimonials = () => {
     <section ref={sectionRef} className="section overflow-hidden">
       <div className="container mb-12">
         <h2 className="testimonials-heading text-light text-center sub-heading">
-          Kind words from <span className="text-secondary">satisfied clients</span>
+          Kind words from <span className="text-secondary">peers</span>
         </h2>
       </div>
 
@@ -78,12 +87,11 @@ const Testimonials = () => {
           breakpoints={{
             480: { slidesPerView: 1, spaceBetween: 16 },
             768: { slidesPerView: 2, spaceBetween: 20 },
-            1024: { slidesPerView: 3, spaceBetween: 24 },
-            1280: { slidesPerView: 3, spaceBetween: 24 },
+            1024: { slidesPerView: 2.8, spaceBetween: 20 },
           }}
         >
           {TESTIMONIALS.map((t) => (
-            <SwiperSlide key={t.name} className="h-auto self-stretch py-2">
+            <SwiperSlide key={t.name} className="!h-auto py-2">
               <TestimonialCard {...t} />
             </SwiperSlide>
           ))}

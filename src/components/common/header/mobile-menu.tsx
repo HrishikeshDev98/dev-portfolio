@@ -1,10 +1,11 @@
 'use client'
 
-import Link from 'next/link'
 import { useState } from 'react'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+
 import { HiMenu, HiX } from 'react-icons/hi'
 import { IoIosArrowDown } from 'react-icons/io'
-import { usePathname } from 'next/navigation'
 
 type SubMenuItem = { name: string; href: string }
 type MenuItem = { name: string; href: string; submenu?: SubMenuItem[] }

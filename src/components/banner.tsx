@@ -1,10 +1,13 @@
 'use client'
 
 import React, { useRef } from 'react'
-import Button from './form/Button'
-import { FiGithub } from 'react-icons/fi'
+
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
+
+import Button from './form/Button'
+
+import { FiGithub } from 'react-icons/fi'
 
 gsap.registerPlugin()
 

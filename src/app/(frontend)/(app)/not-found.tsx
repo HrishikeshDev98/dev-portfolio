@@ -1,4 +1,5 @@
 import Link from 'next/link'
+
 import { IoArrowBackOutline, IoHomeOutline } from 'react-icons/io5'
 
 export const metadata = {

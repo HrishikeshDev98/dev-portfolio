@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+
 import { ButtonProps } from '@/interface'
 import { cn } from '@/utils/mergeClass'
 
@@ -21,7 +22,7 @@ const Button: React.FC<ButtonProps> = ({
   ...props
 }) => {
   const buttonClass = cn(
-    'button text-light flex items-center gap-2  px-10 py-4',
+    'button text-light flex items-center gap-2 cursor-pointer  px-10 py-4',
     sizeClasses[size],
     `button-${variant} `,
     className,

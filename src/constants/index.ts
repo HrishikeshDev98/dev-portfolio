@@ -1,5 +1,8 @@
 import { StaticImageData } from 'next/image'
-import WorkImage1 from '@/static/images/work/work-1.png'
+
+import LSRaheja from '@/static/images/projects/ls-raheja.png'
+import Speedtest from '@/static/images/projects/speedtest-dashboard.jpeg'
+import VPF from '@/static/images/projects/villoo-poonawala-foundation.png'
 
 // ─── Navigation ───────────────────────────────────────────────────────────────
 
@@ -86,18 +89,18 @@ export type Project = {
 
 export const PROJECTS: Project[] = [
   {
-    title: '3D Solar System Planets to Explore',
+    title: 'LS Raheja College Website',
     description:
       'Explore the wonders of our solar system with this captivating 3D simulation of the planets using Three.js.',
-    image: WorkImage1,
-    link: '#',
+    image: LSRaheja,
+    link: '',
     techs: ['React', 'Three.js', 'GSAP'],
   },
   {
     title: 'Yoom – Video Conferencing App',
     description:
       'Simplify your video conferencing experience with Yoom. Seamlessly connect with colleagues and friends.',
-    image: WorkImage1,
+    image: Speedtest,
     link: '#',
     techs: ['Next.js', 'TypeScript', 'Tailwind'],
   },
@@ -105,16 +108,8 @@ export const PROJECTS: Project[] = [
     title: 'AI Image SaaS – Canva Application',
     description:
       'A REAL Software-as-a-Service app with AI features and a payments and credits system using the latest tech stack.',
-    image: WorkImage1,
+    image: VPF,
     link: '#',
     techs: ['Next.js', 'MongoDB', 'Stripe'],
-  },
-  {
-    title: 'Animated Apple iPhone 3D Website',
-    description:
-      'Recreated the Apple iPhone 15 Pro website, combining GSAP animations & Three.js 3D effects.',
-    image: WorkImage1,
-    link: '#',
-    techs: ['React', 'GSAP', 'Three.js'],
   },
 ]

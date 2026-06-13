@@ -1,8 +1,9 @@
 'use client'
 
-import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay } from 'swiper/modules'
+import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
+
 import { TECH_STACK_COL_ONE, TECH_STACK_COL_TWO } from '@/constants'
 
 const Card = ({ tech }: { tech: string }) => (

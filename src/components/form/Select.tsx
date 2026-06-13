@@ -1,8 +1,10 @@
 'use client'
 
-import React, { useRef, useState, useEffect } from 'react'
-import { IoChevronDown } from 'react-icons/io5'
+import React, { useEffect, useRef, useState } from 'react'
+
 import { SelectInterface } from '@/interface'
+
+import { IoChevronDown } from 'react-icons/io5'
 
 const Select: React.FC<SelectInterface> = ({
   label,
@@ -36,7 +38,7 @@ const Select: React.FC<SelectInterface> = ({
     onClick?.()
     if (!open) {
       const rect = ref.current?.getBoundingClientRect()
-      setOpenUpward((window.innerHeight - (rect?.bottom || 0)) < 200)
+      setOpenUpward(window.innerHeight - (rect?.bottom || 0) < 200)
     }
     setOpen((prev) => !prev)
   }

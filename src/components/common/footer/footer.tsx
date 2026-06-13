@@ -1,6 +1,7 @@
-import Link from 'next/link'
 import Image from 'next/image'
-import BannerGrid from '@/static/images/banner-grid.png'
+import Link from 'next/link'
+
+import BannerGrid from '@/static/images/backgrounds/banner-grid.png'
 
 const QUICK_LINKS = [{ name: 'Home', href: '/' }]
 

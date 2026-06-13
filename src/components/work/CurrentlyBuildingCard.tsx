@@ -1,4 +1,5 @@
 import Image from 'next/image'
+
 import JavascriptImage from '@/static/images/work/javascript.png'
 
 export const CurrentlyBuildingCard = () => (

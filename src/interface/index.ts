@@ -1,4 +1,4 @@
-import { ReactNode, ButtonHTMLAttributes, AnchorHTMLAttributes } from 'react'
+import { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from 'react'
 
 type BaseProps = {
   text: string

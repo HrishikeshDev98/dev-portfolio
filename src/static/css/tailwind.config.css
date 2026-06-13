@@ -85,7 +85,8 @@
   }
 
   .banner {
-    background-image: url('../images/banner-grid.png'), url('../images/banner-bg.png');
+    background-image:
+      url('../images/backgrounds/banner-grid.png'), url('../images/backgrounds/banner-bg.png');
     background-repeat: no-repeat, no-repeat;
     background-size: cover, cover;
     background-position: center, center;

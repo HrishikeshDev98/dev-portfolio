@@ -1,7 +1,10 @@
 import { Inter } from 'next/font/google'
+
 import '@/static/css/tailwind.config.css'
-import Header from '@/components/common/header/header'
+import 'swiper/css'
+
 import Footer from '@/components/common/footer/footer'
+import Header from '@/components/common/header/header'
 
 const inter = Inter({
   weight: ['300', '400', '500', '600', '700'],

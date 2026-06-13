@@ -1,14 +1,16 @@
 'use client'
 
 import { useRef } from 'react'
+
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { LargeImageCard } from './work/LargeImageCard'
-import { TimezoneCard } from './work/TimezoneCard'
-import { TechStackCard } from './work/TechStackCard'
+
 import { AboutCard } from './work/AboutCard'
 import { CurrentlyBuildingCard } from './work/CurrentlyBuildingCard'
+import { LargeImageCard } from './work/LargeImageCard'
+import { TechStackCard } from './work/TechStackCard'
+import { TimezoneCard } from './work/TimezoneCard'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -45,7 +47,7 @@ const Work = () => {
   )
 
   return (
-    <section className="section">
+    <section className="section pt-0">
       <div className="container">
         <div
           ref={topGridRef}

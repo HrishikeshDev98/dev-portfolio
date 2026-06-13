@@ -1,4 +1,5 @@
 import Image from 'next/image'
+
 import WorkImage1 from '@/static/images/work/work-1.png'
 
 export const LargeImageCard = () => (

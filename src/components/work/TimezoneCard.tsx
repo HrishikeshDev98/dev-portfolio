@@ -1,4 +1,5 @@
 import Image from 'next/image'
+
 import GlobeImage from '@/static/images/work/timings/globe.png'
 
 export const TimezoneCard = () => (

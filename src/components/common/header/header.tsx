@@ -1,9 +1,10 @@
 'use client'
 
-import { NavLink } from './nav-link'
-import { MobileMenu } from './mobile-menu'
 import { NAV_LINKS } from '@/constants/navigation'
 import { useActiveSection } from '@/hooks/useActiveSection'
+
+import { MobileMenu } from './mobile-menu'
+import { NavLink } from './nav-link'
 
 const SECTION_IDS = NAV_LINKS.map((l) => l.href.replace('#', ''))
 
