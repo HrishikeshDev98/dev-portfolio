@@ -3,9 +3,7 @@
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay } from 'swiper/modules'
 import 'swiper/css'
-
-const COL_ONE = ['ReactJS', 'TypeScript', 'Next.js', 'Vue.js', 'Express', 'GraphQL']
-const COL_TWO = ['Vue.js', 'Express', 'GraphQL', 'ReactJS', 'TypeScript', 'Next.js']
+import { TECH_STACK_COL_ONE, TECH_STACK_COL_TWO } from '@/constants'
 
 const Card = ({ tech }: { tech: string }) => (
   <div className="w-full py-8 rounded-lg bg-white/5 flex items-center justify-center">
@@ -21,11 +19,11 @@ export const TechStackCarousel = () => {
         slidesPerView="auto"
         loop
         speed={1200}
-        autoplay={{ delay: 1200, disableOnInteraction: false }}
+        autoplay={{ delay: 700, disableOnInteraction: false }}
         modules={[Autoplay]}
         className="w-1/2 h-[280px]"
       >
-        {COL_ONE.map((tech) => (
+        {TECH_STACK_COL_ONE.map((tech) => (
           <SwiperSlide key={tech} className="!h-[100px]">
             <Card tech={tech} />
           </SwiperSlide>
@@ -41,7 +39,7 @@ export const TechStackCarousel = () => {
         modules={[Autoplay]}
         className="w-1/2 h-[280px]"
       >
-        {COL_TWO.map((tech) => (
+        {TECH_STACK_COL_TWO.map((tech) => (
           <SwiperSlide key={tech} className="!h-[100px]">
             <Card tech={tech} />
           </SwiperSlide>

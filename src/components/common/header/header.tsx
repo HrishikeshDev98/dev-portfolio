@@ -16,8 +16,8 @@ const Header = () => {
   }, [])
 
   return (
-    <header className="fixed top-5 w-full flex items-center justify-center z-50 px-4">
-      <nav className="navbar rounded-xl px-6 py-4 w-full max-w-5xl relative">
+    <header className="fixed top-5 w-full z-50 px-4">
+      <nav className="navbar rounded-xl px-6 py-4 container relative">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <span className="text-2xl font-bold text-white tracking-tight select-none">H</span>
