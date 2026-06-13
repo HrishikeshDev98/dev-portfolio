@@ -76,10 +76,10 @@ const Testimonials = () => {
           speed={700}
           autoplay={{ delay: 4000, disableOnInteraction: false, pauseOnMouseEnter: true }}
           breakpoints={{
-            480: { slidesPerView: 1.2, spaceBetween: 16 },
-            768: { slidesPerView: 1.6, spaceBetween: 20 },
-            1024: { slidesPerView: 2.2, spaceBetween: 24 },
-            1280: { slidesPerView: 2.8, spaceBetween: 24 },
+            480: { slidesPerView: 1, spaceBetween: 16 },
+            768: { slidesPerView: 2, spaceBetween: 20 },
+            1024: { slidesPerView: 3, spaceBetween: 24 },
+            1280: { slidesPerView: 3, spaceBetween: 24 },
           }}
         >
           {TESTIMONIALS.map((t) => (
