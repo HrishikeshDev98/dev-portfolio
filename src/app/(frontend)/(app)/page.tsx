@@ -7,9 +7,15 @@ const Page = () => {
   return (
     <>
       <Banner />
-      <Work />
-      <RecentProjects />
-      <Testimonials />
+      <div id="about">
+        <Work />
+      </div>
+      <div id="projects">
+        <RecentProjects />
+      </div>
+      <div id="testimonials">
+        <Testimonials />
+      </div>
     </>
   )
 }

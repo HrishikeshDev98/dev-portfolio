@@ -29,6 +29,51 @@ export const TECH_STACK_COL_TWO = [
   'Next.js',
 ]
 
+// ─── Testimonials ─────────────────────────────────────────────────────────────
+
+export const TESTIMONIALS = [
+  {
+    name: 'Sarah Mitchell',
+    role: 'Product Manager',
+    company: 'Vercel',
+    quote:
+      "Collaborating with Hrishikesh was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. His enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, he is the ideal partner.",
+    initials: 'SM',
+  },
+  {
+    name: 'James Okafor',
+    role: 'CTO',
+    company: 'Launchpad Inc.',
+    quote:
+      'Working with Hrishikesh was a seamless experience. He understood our product requirements instantly and turned them into a fast, accessible, and beautiful web app.',
+    initials: 'JO',
+  },
+  {
+    name: 'Priya Nair',
+    role: 'Founder',
+    company: 'Sprout Studio',
+    quote:
+      'The attention to detail in both design implementation and API integration was impressive. Our clients constantly compliment the smoothness of the interface.',
+    initials: 'PN',
+  },
+  {
+    name: 'Lucas Fernandez',
+    role: 'Lead Engineer',
+    company: 'Notion',
+    quote:
+      "Exceptional problem-solving skills and clear communication throughout. He didn't just write code — he thought deeply about the user experience at every step.",
+    initials: 'LF',
+  },
+  {
+    name: 'Aiko Tanaka',
+    role: 'Design Lead',
+    company: 'Linear',
+    quote:
+      "Hrishikesh bridged the gap between design and engineering better than anyone I've worked with. Every transition, every interaction felt intentional and polished.",
+    initials: 'AT',
+  },
+]
+
 // ─── Recent Projects ──────────────────────────────────────────────────────────
 
 export type Project = {

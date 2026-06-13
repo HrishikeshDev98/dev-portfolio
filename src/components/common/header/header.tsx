@@ -3,35 +3,29 @@
 import { NavLink } from './nav-link'
 import { MobileMenu } from './mobile-menu'
 import { NAV_LINKS } from '@/constants/navigation'
-import { useEffect, useState } from 'react'
+import { useActiveSection } from '@/hooks/useActiveSection'
+
+const SECTION_IDS = NAV_LINKS.map((l) => l.href.replace('#', ''))
 
 const Header = () => {
-  const [scrolled, setScrolled] = useState(false)
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20)
-    onScroll()
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
+  const activeId = useActiveSection(SECTION_IDS)
 
   return (
     <header className="fixed top-5 w-full z-50 px-4">
       <nav className="navbar rounded-xl px-6 py-4 container relative">
         <div className="flex items-center justify-between">
-          {/* Logo */}
           <span className="text-2xl font-bold text-white tracking-tight select-none">H</span>
 
-          {/* Desktop nav */}
           <ul className="hidden lg:flex items-center gap-8">
             {NAV_LINKS.map((link) => (
               <li key={link.href}>
-                <NavLink href={link.href}>{link.name}</NavLink>
+                <NavLink href={link.href} isActive={activeId === link.href.replace('#', '')}>
+                  {link.name}
+                </NavLink>
               </li>
             ))}
           </ul>
 
-          {/* Mobile hamburger + dropdown */}
           <MobileMenu menus={NAV_LINKS} />
         </div>
       </nav>

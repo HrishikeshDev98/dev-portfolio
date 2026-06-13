@@ -1,7 +1,8 @@
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { FaLocationArrow } from 'react-icons/fa'
+import { MdArrowOutward } from 'react-icons/md'
+
 import { PROJECTS, type Project } from '@/constants'
 
 const ProjectCard = ({ project }: { project: Project }) => (
@@ -15,7 +16,7 @@ const ProjectCard = ({ project }: { project: Project }) => (
     {/* Content */}
     <div className="flex flex-col flex-1 p-6 gap-4">
       <h3 className="text-white font-bold text-lg leading-snug">{project.title}</h3>
-      <p className="text-white/50 text-sm leading-relaxed flex-1">{project.description}</p>
+      <p className="text-sm leading-relaxed flex-1">{project.description}</p>
 
       {/* Tech badges */}
       <div className="flex flex-wrap gap-2">
@@ -35,7 +36,7 @@ const ProjectCard = ({ project }: { project: Project }) => (
         target="_blank"
         className="flex items-center gap-2 text-secondary text-sm font-medium hover:gap-3 transition-all duration-200 w-fit"
       >
-        Check Live Site <FaLocationArrow size={12} />
+        Check Live Site <MdArrowOutward size={12} />
       </Link>
     </div>
   </div>
@@ -49,7 +50,7 @@ const RecentProjects = () => {
           A small selection of <span className="text-secondary">recent projects</span>
         </h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
           {PROJECTS.map((project) => (
             <ProjectCard key={project.title} project={project} />
           ))}
