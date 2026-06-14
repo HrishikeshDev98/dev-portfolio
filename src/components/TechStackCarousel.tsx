@@ -19,8 +19,8 @@ export const TechStackCarousel = () => {
         direction="vertical"
         slidesPerView="auto"
         loop
-        speed={1200}
-        autoplay={{ delay: 700, disableOnInteraction: false }}
+        speed={600}
+        autoplay={{ delay: 1500, disableOnInteraction: false }}
         modules={[Autoplay]}
         className="w-1/2 h-[280px]"
       >
@@ -35,8 +35,8 @@ export const TechStackCarousel = () => {
         direction="vertical"
         slidesPerView="auto"
         loop
-        speed={800}
-        autoplay={{ delay: 700, disableOnInteraction: false, reverseDirection: true }}
+        speed={600}
+        autoplay={{ delay: 1800, disableOnInteraction: false, reverseDirection: true }}
         modules={[Autoplay]}
         className="w-1/2 h-[280px]"
       >

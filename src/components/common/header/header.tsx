@@ -1,6 +1,7 @@
 'use client'
 
 import { useRef } from 'react'
+import Image from 'next/image'
 
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
@@ -10,6 +11,8 @@ import { useActiveSection } from '@/hooks/useActiveSection'
 
 import { MobileMenu } from './mobile-menu'
 import { NavLink } from './nav-link'
+
+import Logo from '@/static/images/logo-h-transparent.png'
 
 const SECTION_IDS = NAV_LINKS.map((l) => l.href.replace('#', ''))
 
@@ -34,7 +37,7 @@ const Header = () => {
     <header ref={headerRef} className="fixed top-5 w-full z-50 px-4">
       <nav className="header-nav navbar rounded-xl px-6 py-4 container relative border border-white/10">
         <div className="flex items-center justify-between">
-          <span className="text-2xl font-bold text-white tracking-tight select-none">H</span>
+          <Image src={Logo} alt="Hrishikesh" width={40} height={40} className="select-none" />
 
           <ul className="hidden lg:flex items-center gap-8">
             {NAV_LINKS.map((link) => (

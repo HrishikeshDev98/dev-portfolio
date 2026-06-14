@@ -33,7 +33,7 @@ const Banner = () => {
           Crafting Dynamic Web Solutions with Nextjs Expertise
         </p>
         <h2 className="banner-heading heading mb-6 text-center text-light">
-          Transorming Concepts into <br />
+          Transforming Concepts into <br />
           Seamless <span className="text-secondary"> User Experiences</span>
         </h2>
         <p className="banner-sub text-lg text-center font-light mb-6 text-light tracking-widest">

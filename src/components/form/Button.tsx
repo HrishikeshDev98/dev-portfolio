@@ -21,17 +21,20 @@ const Button: React.FC<ButtonProps> = ({
   size = 'normal',
   ...props
 }) => {
+  const iconOnly = !text && !!icon
+
   const buttonClass = cn(
-    'button text-light flex items-center gap-2 cursor-pointer  px-10 py-4',
+    'button text-light flex items-center justify-center gap-2 cursor-pointer',
+    iconOnly ? 'p-4' : 'px-10 py-4',
     sizeClasses[size],
-    `button-${variant} `,
+    `button-${variant}`,
     className,
   )
 
   if (link) {
     return (
       <Link href={link} className={buttonClass} {...(props as object)}>
-        <span>{text}</span>
+        {text && <span>{text}</span>}
         {icon && <span>{icon}</span>}
       </Link>
     )
@@ -39,7 +42,7 @@ const Button: React.FC<ButtonProps> = ({
 
   return (
     <button type={type} className={buttonClass} {...(props as object)}>
-      <span>{text}</span>
+      {text && <span>{text}</span>}
       {icon && <span>{icon}</span>}
     </button>
   )

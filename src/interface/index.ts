@@ -1,7 +1,7 @@
 import { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from 'react'
 
 type BaseProps = {
-  text: string
+  text?: string
   icon?: ReactNode
   className?: string
   size?: 'small' | 'medium' | 'normal'

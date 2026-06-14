@@ -35,16 +35,22 @@ export const TECH_STACK: Record<string, TechIcon> = {
   payload: { name: 'Payload CMS', icon: PayloadIcon },
 }
 
-export const TECH_STACK_COL_ONE: TechIcon[] = [
-  TECH_STACK.react,
-  TECH_STACK.typescript,
-  TECH_STACK.nextjs,
+export const TECH_STACK_COL_ONE: string[] = [
+  TECH_STACK.react.name,
+  TECH_STACK.typescript.name,
+  TECH_STACK.nextjs.name,
+  'Vue.js',
+  'GraphQL',
+  'Express',
 ]
 
-export const TECH_STACK_COL_TWO: TechIcon[] = [
-  TECH_STACK.nodejs,
-  TECH_STACK.tailwind,
-  TECH_STACK.payload,
+export const TECH_STACK_COL_TWO: string[] = [
+  TECH_STACK.nodejs.name,
+  TECH_STACK.tailwind.name,
+  TECH_STACK.payload.name,
+  'MongoDB',
+  'Docker',
+  'PostgreSQL',
 ]
 
 // ─── Testimonials ─────────────────────────────────────────────────────────────
@@ -106,25 +112,25 @@ export const PROJECTS: Project[] = [
   {
     title: 'LS Raheja College Website',
     description:
-      'Explore the wonders of our solar system with this captivating 3D simulation of the planets using Three.js.',
+      "The official platform for Mumbai's L. S. Raheja College of Arts & Commerce, an autonomous institute affiliated with the University of Mumbai. Built to handle admissions, course information, and student resources across junior, degree, and postgraduate programs.",
     image: LSRaheja,
-    link: '',
+    link: 'lsraheja.org',
     techs: [TECH_STACK.react, TECH_STACK.nextjs, TECH_STACK.tailwind],
   },
   {
-    title: 'Yoom – Video Conferencing App',
+    title: 'SpeedTest Probes Dashboard — (Facts Online)',
     description:
-      'Simplify your video conferencing experience with Yoom. Seamlessly connect with colleagues and friends.',
+      'A MERN-stack dashboard that helps field engineers monitor internet speed test probes in real time. Features role-based access, Redux and React Query for state management, and Recharts-powered visualizations that turn complex network data into clear, actionable insights.',
     image: Speedtest,
-    link: '#',
+    link: '',
     techs: [TECH_STACK.nextjs, TECH_STACK.tailwind],
   },
   {
-    title: 'AI Image SaaS – Canva Application',
+    title: 'Villoo Poonawala Foundation',
     description:
-      'A REAL Software-as-a-Service app with AI features and a payments and credits system using the latest tech stack.',
+      'Official website for Viloo Poonwala Foundation built to showcase initiatives, impact, programs, and community outreach.',
     image: VPF,
-    link: '#',
+    link: 'https://vpf.bayalis.in/',
     techs: [TECH_STACK.nextjs, TECH_STACK.payload, TECH_STACK.nodejs],
   },
 ]
