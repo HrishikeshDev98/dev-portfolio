@@ -11,7 +11,7 @@ import Button from '@/components/form/Button'
 
 import BannerGrid from '@/static/images/backgrounds/banner-grid.png'
 
-import { FaGithub, FaLinkedin, FaTwitter, FaWhatsapp } from 'react-icons/fa'
+import { FaGithub, FaInstagram, FaLinkedin, FaWhatsapp } from 'react-icons/fa'
 import { MdKeyboardArrowUp } from 'react-icons/md'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -64,6 +64,8 @@ const Footer = () => {
               icon={<FaWhatsapp size={20} />}
               link="https://wa.me/919322882564"
               className="w-fit mx-auto"
+              target="_blank"
+              rel="noopener noreferrer"
             />
           </div>
         </section>
@@ -78,16 +80,22 @@ const Footer = () => {
                 icon={<FaGithub size={16} />}
                 link="https://github.com/HrishikeshDev98"
                 aria-label="GitHub"
+                target="_blank"
+                rel="noopener noreferrer"
               />
               <Button
                 icon={<FaLinkedin size={16} />}
-                link="https://linkedin.com/in/hrishikesh"
+                link="https://www.linkedin.com/in/hrishikesh-pawar-370413205/"
                 aria-label="LinkedIn"
+                target="_blank"
+                rel="noopener noreferrer"
               />
               <Button
-                icon={<FaTwitter size={16} />}
-                link="https://twitter.com/hrishikesh"
-                aria-label="Twitter"
+                icon={<FaInstagram size={16} />}
+                link="https://www.instagram.com/_hrishi.xd/"
+                aria-label="Instagram"
+                target="_blank"
+                rel="noopener noreferrer"
               />
             </div>
           </div>

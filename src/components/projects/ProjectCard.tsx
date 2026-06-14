@@ -8,7 +8,7 @@ import ProjectCardBg from '@/static/images/backgrounds/project-card-bg.png'
 import { MdArrowOutward } from 'react-icons/md'
 
 const ProjectCard = ({ project }: { project: Project }) => (
-  <div className="project-card border border-light/10 rounded-2xl overflow-hidden flex flex-col bg-[#0c0e23] p-3">
+  <div className="project-card h-full border border-light/10 rounded-2xl overflow-hidden flex flex-col bg-[#0c0e23] p-3">
     <div
       className="relative h-[250px] w-full overflow-hidden rounded-2xl flex items-end justify-center p-4"
       style={{ perspective: '1000px' }}
@@ -31,12 +31,12 @@ const ProjectCard = ({ project }: { project: Project }) => (
       </div>
     </div>
 
-    <div className="py-5">
+    <div className="py-5 flex flex-col flex-1">
       <h3 className="text-light font-bold text-lg leading-snug sub-heading mb-2">
         {project.title}
       </h3>
       <p className="text-sm leading-relaxed flex-1 text-[#BEC1DD] mb-4">{project.description}</p>
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between mt-auto">
         <div className="flex items-center">
           {project.techs.map((tech, i) => (
             <div
