@@ -8,20 +8,16 @@ import sharp from 'sharp'
 
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
+import { Projects } from './collections/Projects'
+import { Testimonials } from './collections/Testimonials'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
 export default buildConfig({
   serverURL: process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000',
-  cors: [
-    'http://localhost:3000',
-    process.env.NEXT_PUBLIC_BASE_URL || '',
-  ].filter(Boolean),
-  csrf: [
-    'http://localhost:3000',
-    process.env.NEXT_PUBLIC_BASE_URL || '',
-  ].filter(Boolean),
+  cors: ['http://localhost:3000', process.env.NEXT_PUBLIC_BASE_URL || ''].filter(Boolean),
+  csrf: ['http://localhost:3000', process.env.NEXT_PUBLIC_BASE_URL || ''].filter(Boolean),
 
   admin: {
     user: Users.slug,
@@ -29,7 +25,7 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [Users, Media],
+  collections: [Users, Media, Projects, Testimonials],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
@@ -39,7 +35,5 @@ export default buildConfig({
     url: process.env.DATABASE_URI || '',
   }),
   sharp,
-  plugins: [
-    payloadCloudPlugin(),
-  ],
+  plugins: [payloadCloudPlugin()],
 })

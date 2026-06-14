@@ -33,8 +33,10 @@ const Banner = () => {
           Crafting Dynamic Web Solutions with Nextjs Expertise
         </p>
         <h2 className="banner-heading heading mb-6 text-center text-light">
-          Transforming Concepts into <br />
-          Seamless <span className="text-secondary"> User Experiences</span>
+          <span className="block">Transforming Concepts into</span>
+          <span className="block">
+            Seamless <span className="text-secondary">User Experiences</span>
+          </span>
         </h2>
         <p className="banner-sub text-lg text-center font-light mb-6 text-light tracking-widest">
           Hi! I&apos;m Hrishikesh, a Next.js Developer based in India
@@ -45,6 +47,8 @@ const Banner = () => {
             className="max-w-fit flex mx-auto text-center"
             link="https://github.com/HrishikeshDev98"
             icon={<FiGithub />}
+            target="_blank"
+            rel="noopener noreferrer"
           />
         </div>
       </div>
