@@ -28,6 +28,7 @@
     "@payloadcms/ui": "3.40.0",
     "@tailwindcss/postcss": "^4.1.8",
     "aos": "^2.3.4",
+    "cloudinary": "^2.10.0",
     "cross-env": "^7.0.3",
     "fuse.js": "^7.1.0",
     "graphql": "^16.8.1",
