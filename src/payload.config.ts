@@ -14,10 +14,16 @@ import { Testimonials } from './collections/Testimonials'
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
+const VERCEL_URL = 'https://dev-portfolio-lime-six.vercel.app'
+
 export default buildConfig({
-  serverURL: process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000',
-  cors: ['http://localhost:3000', process.env.NEXT_PUBLIC_BASE_URL || ''].filter(Boolean),
-  csrf: ['http://localhost:3000', process.env.NEXT_PUBLIC_BASE_URL || ''].filter(Boolean),
+  serverURL: process.env.NEXT_PUBLIC_BASE_URL || VERCEL_URL,
+  cors: ['http://localhost:3000', VERCEL_URL, process.env.NEXT_PUBLIC_BASE_URL || ''].filter(
+    Boolean,
+  ),
+  csrf: ['http://localhost:3000', VERCEL_URL, process.env.NEXT_PUBLIC_BASE_URL || ''].filter(
+    Boolean,
+  ),
 
   admin: {
     user: Users.slug,
