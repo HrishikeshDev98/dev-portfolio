@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic'
+
 import Banner from '@/components/banner'
 import RecentProjects from '@/components/RecentProjects'
 import Testimonials from '@/components/Testimonials'

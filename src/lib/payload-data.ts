@@ -37,6 +37,7 @@ export async function getProjects(): Promise<CMSProject[]> {
       limit: 20,
     })
 
+    console.log(`[CMS] projects fetched: ${docs.length}`)
     if (!docs.length) return []
 
     return docs.map((doc) => {
@@ -50,7 +51,8 @@ export async function getProjects(): Promise<CMSProject[]> {
         techs: mapTechNames((doc.techs as { name: string }[]) ?? []),
       }
     })
-  } catch {
+  } catch (err) {
+    console.error('[CMS] getProjects failed:', err)
     return []
   }
 }
@@ -64,6 +66,7 @@ export async function getTestimonials(): Promise<CMSTestimonial[]> {
       limit: 20,
     })
 
+    console.log(`[CMS] testimonials fetched: ${docs.length}`)
     if (!docs.length) return []
 
     return docs.map((doc) => ({
@@ -73,7 +76,8 @@ export async function getTestimonials(): Promise<CMSTestimonial[]> {
       quote: doc.quote,
       initials: doc.initials,
     }))
-  } catch {
+  } catch (err) {
+    console.error('[CMS] getTestimonials failed:', err)
     return []
   }
 }
