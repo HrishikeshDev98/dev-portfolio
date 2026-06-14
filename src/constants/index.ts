@@ -1,5 +1,11 @@
 import { StaticImageData } from 'next/image'
 
+import NextJsIcon from '@/static/images/icons/next js.png'
+import NodeJsIcon from '@/static/images/icons/nodejs.png'
+import PayloadIcon from '@/static/images/icons/payload cms.png'
+import ReactIcon from '@/static/images/icons/react.png'
+import TailwindIcon from '@/static/images/icons/tailwind.png'
+import TypeScriptIcon from '@/static/images/icons/typescript.png'
 import LSRaheja from '@/static/images/projects/ls-raheja.png'
 import Speedtest from '@/static/images/projects/speedtest-dashboard.jpeg'
 import VPF from '@/static/images/projects/villoo-poonawala-foundation.png'
@@ -13,23 +19,32 @@ export const NAV_LINKS = [
   { name: 'Contact', href: '#contact' },
 ]
 
-// ─── Work section ─────────────────────────────────────────────────────────────
+// ─── Tech stack ───────────────────────────────────────────────────────────────
 
-export const TECH_STACK_COL_ONE = [
-  'ReactJS',
-  'TypeScript',
-  'Next.js',
-  'Vue.js',
-  'Express',
-  'GraphQL',
+export type TechIcon = {
+  name: string
+  icon: StaticImageData
+}
+
+export const TECH_STACK: Record<string, TechIcon> = {
+  react: { name: 'React', icon: ReactIcon },
+  typescript: { name: 'TypeScript', icon: TypeScriptIcon },
+  nextjs: { name: 'Next.js', icon: NextJsIcon },
+  nodejs: { name: 'Node.js', icon: NodeJsIcon },
+  tailwind: { name: 'Tailwind CSS', icon: TailwindIcon },
+  payload: { name: 'Payload CMS', icon: PayloadIcon },
+}
+
+export const TECH_STACK_COL_ONE: TechIcon[] = [
+  TECH_STACK.react,
+  TECH_STACK.typescript,
+  TECH_STACK.nextjs,
 ]
-export const TECH_STACK_COL_TWO = [
-  'Vue.js',
-  'Express',
-  'GraphQL',
-  'ReactJS',
-  'TypeScript',
-  'Next.js',
+
+export const TECH_STACK_COL_TWO: TechIcon[] = [
+  TECH_STACK.nodejs,
+  TECH_STACK.tailwind,
+  TECH_STACK.payload,
 ]
 
 // ─── Testimonials ─────────────────────────────────────────────────────────────
@@ -84,7 +99,7 @@ export type Project = {
   description: string
   image: StaticImageData
   link: string
-  techs: string[]
+  techs: TechIcon[]
 }
 
 export const PROJECTS: Project[] = [
@@ -94,7 +109,7 @@ export const PROJECTS: Project[] = [
       'Explore the wonders of our solar system with this captivating 3D simulation of the planets using Three.js.',
     image: LSRaheja,
     link: '',
-    techs: ['React', 'Three.js', 'GSAP'],
+    techs: [TECH_STACK.react, TECH_STACK.nextjs, TECH_STACK.tailwind],
   },
   {
     title: 'Yoom – Video Conferencing App',
@@ -102,7 +117,7 @@ export const PROJECTS: Project[] = [
       'Simplify your video conferencing experience with Yoom. Seamlessly connect with colleagues and friends.',
     image: Speedtest,
     link: '#',
-    techs: ['Next.js', 'TypeScript', 'Tailwind'],
+    techs: [TECH_STACK.nextjs, TECH_STACK.tailwind],
   },
   {
     title: 'AI Image SaaS – Canva Application',
@@ -110,6 +125,6 @@ export const PROJECTS: Project[] = [
       'A REAL Software-as-a-Service app with AI features and a payments and credits system using the latest tech stack.',
     image: VPF,
     link: '#',
-    techs: ['Next.js', 'MongoDB', 'Stripe'],
+    techs: [TECH_STACK.nextjs, TECH_STACK.payload, TECH_STACK.nodejs],
   },
 ]
