@@ -33,6 +33,11 @@ export default buildConfig({
   },
   db: mongooseAdapter({
     url: process.env.DATABASE_URI || '',
+    mongooseOptions: {
+      serverSelectionTimeoutMS: 30000,
+      connectTimeoutMS: 30000,
+      socketTimeoutMS: 45000,
+    },
   }),
   sharp,
   plugins: [payloadCloudPlugin()],
