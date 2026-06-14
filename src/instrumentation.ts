@@ -1,5 +1,6 @@
-import { setServers } from 'node:dns/promises'
-
 export async function register() {
-  await setServers(['1.1.1.1', '8.8.8.8'])
+  if (process.env.NEXT_RUNTIME === 'nodejs') {
+    const { setServers } = await import('node:dns/promises')
+    await setServers(['1.1.1.1', '8.8.8.8'])
+  }
 }
