@@ -8,12 +8,15 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 import ProjectCard from '@/components/projects/ProjectCard'
 import { PROJECTS } from '@/constants'
+import type { CMSProject } from '@/lib/payload-data'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const RecentProjects = () => {
+const RecentProjects = ({ cmsProjects }: { cmsProjects: CMSProject[] }) => {
   const sectionRef = useRef<HTMLElement>(null)
   const cardsRef = useRef<HTMLDivElement>(null)
+
+  const projects = cmsProjects.length ? cmsProjects : null
 
   useGSAP(
     () => {
@@ -45,9 +48,9 @@ const RecentProjects = () => {
         </h2>
 
         <div ref={cardsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {PROJECTS.map((project) => (
-            <ProjectCard key={project.title} project={project} />
-          ))}
+          {projects
+            ? projects.map((p) => <ProjectCard key={p.title} project={p} />)
+            : PROJECTS.map((p) => <ProjectCard key={p.title} project={p} />)}
         </div>
       </div>
     </section>

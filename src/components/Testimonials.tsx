@@ -10,18 +10,21 @@ import { Autoplay } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 import { TESTIMONIALS } from '@/constants'
+import type { CMSTestimonial } from '@/lib/payload-data'
 
 import BgImage from '@/static/images/testimonials/bg.png'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const TestimonialCard = ({
-  name,
-  role,
-  company,
-  quote,
-  initials,
-}: (typeof TESTIMONIALS)[number]) => (
+type TestimonialItem = {
+  name: string
+  role: string
+  company: string
+  quote: string
+  initials: string
+}
+
+const TestimonialCard = ({ name, role, company, quote, initials }: TestimonialItem) => (
   <div className="relative h-full flex flex-col justify-between border border-white/10 rounded-2xl md:rounded-3xl p-3 md:p-5">
     <Image
       src={BgImage}
@@ -43,8 +46,10 @@ const TestimonialCard = ({
   </div>
 )
 
-const Testimonials = () => {
+const Testimonials = ({ cmsItems }: { cmsItems: CMSTestimonial[] }) => {
   const sectionRef = useRef<HTMLElement>(null)
+
+  const items: TestimonialItem[] = cmsItems.length ? cmsItems : TESTIMONIALS
 
   useGSAP(
     () => {
@@ -90,7 +95,7 @@ const Testimonials = () => {
             1024: { slidesPerView: 2.8, spaceBetween: 20 },
           }}
         >
-          {TESTIMONIALS.map((t) => (
+          {items.map((t) => (
             <SwiperSlide key={t.name} className="!h-auto py-2">
               <TestimonialCard {...t} />
             </SwiperSlide>

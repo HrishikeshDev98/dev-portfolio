@@ -2,8 +2,11 @@ import Banner from '@/components/banner'
 import RecentProjects from '@/components/RecentProjects'
 import Testimonials from '@/components/Testimonials'
 import Work from '@/components/Work'
+import { getProjects, getTestimonials } from '@/lib/payload-data'
 
-const Page = () => {
+const Page = async () => {
+  const [cmsProjects, cmsTestimonials] = await Promise.all([getProjects(), getTestimonials()])
+
   return (
     <>
       <Banner />
@@ -11,10 +14,10 @@ const Page = () => {
         <Work />
       </div>
       <div id="projects">
-        <RecentProjects />
+        <RecentProjects cmsProjects={cmsProjects} />
       </div>
       <div id="testimonials">
-        <Testimonials />
+        <Testimonials cmsItems={cmsTestimonials} />
       </div>
     </>
   )
