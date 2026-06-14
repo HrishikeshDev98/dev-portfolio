@@ -59,13 +59,15 @@ const ProjectCard = ({ project }: { project: CardProject }) => {
             ))}
           </div>
 
-          <Link
-            href={project.link}
-            target="_blank"
-            className="flex items-center gap-2 text-secondary text-sm font-medium w-fit"
-          >
-            Check Live Site <MdArrowOutward size={12} />
-          </Link>
+          {project.link && (
+            <Link
+              href={project.link}
+              target="_blank"
+              className="flex items-center gap-2 text-secondary text-sm font-medium w-fit"
+            >
+              Check Live Site <MdArrowOutward size={12} />
+            </Link>
+          )}
         </div>
       </div>
     </div>
