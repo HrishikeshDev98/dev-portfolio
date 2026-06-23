@@ -88,7 +88,7 @@ const Testimonials = ({ cmsItems }: { cmsItems: CMSTestimonial[] }) => {
           centeredSlides
           loop
           speed={700}
-          autoplay={{ delay: 4000, disableOnInteraction: false, pauseOnMouseEnter: true }}
+          autoplay={{ delay: 4000, disableOnInteraction: false }}
           breakpoints={{
             480: { slidesPerView: 1, spaceBetween: 16 },
             768: { slidesPerView: 2, spaceBetween: 20 },
