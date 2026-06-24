@@ -1,3 +1,6 @@
+'use client'
+
+import { useEffect, useRef, useState } from 'react'
 import Image, { StaticImageData } from 'next/image'
 import Link from 'next/link'
 
@@ -18,9 +21,25 @@ type CardProject = {
 
 const ProjectCard = ({ project }: { project: CardProject }) => {
   const imgSrc = project.imageUrl ?? project.image ?? ProjectCardBg
+  const [expanded, setExpanded] = useState(false)
+  const [isClamped, setIsClamped] = useState(false)
+  const textRef = useRef<HTMLParagraphElement>(null)
+
+  useEffect(() => {
+    const el = textRef.current
+    if (!el) return
+    const measure = () => {
+      // Only meaningful while the text is clamped; skip when expanded
+      if (expanded) return
+      setIsClamped(el.scrollHeight > el.clientHeight)
+    }
+    measure()
+    window.addEventListener('resize', measure)
+    return () => window.removeEventListener('resize', measure)
+  }, [project.description, expanded])
 
   return (
-    <div className="project-card h-full border border-light/10 rounded-2xl overflow-hidden flex flex-col bg-[#0c0e23] p-3">
+    <div className="project-card group h-full border border-light/10 rounded-2xl overflow-hidden flex flex-col bg-[#0c0e23] p-3">
       <div
         className="relative h-[250px] w-full overflow-hidden rounded-2xl flex items-end justify-center p-4"
         style={{ perspective: '1000px' }}
@@ -33,8 +52,8 @@ const ProjectCard = ({ project }: { project: CardProject }) => {
           priority
         />
         <div
-          className="relative w-[90%] h-full rounded-xl overflow-hidden shadow-2xl transition-transform duration-500 top-full -translate-y-[80%]"
-          style={{ transform: 'rotate(3deg)', transformOrigin: '50%' }}
+          className="relative w-[90%] h-full rounded-xl overflow-hidden shadow-2xl transition-transform duration-500 top-full -translate-y-[80%] rotate-3 group-hover:rotate-0"
+          style={{ transformOrigin: '50%' }}
         >
           <Image src={imgSrc} alt={project.title} fill className="object-cover" />
         </div>
@@ -44,7 +63,23 @@ const ProjectCard = ({ project }: { project: CardProject }) => {
         <h3 className="text-light font-bold text-lg leading-snug sub-heading mb-2">
           {project.title}
         </h3>
-        <p className="text-sm leading-relaxed flex-1 text-[#BEC1DD] mb-4">{project.description}</p>
+        <div className="flex-1 mb-4">
+          <p
+            ref={textRef}
+            className={`text-sm leading-relaxed text-[#BEC1DD] ${expanded ? '' : 'line-clamp-3'}`}
+          >
+            {project.description}
+          </p>
+          {isClamped && (
+            <button
+              type="button"
+              onClick={() => setExpanded((prev) => !prev)}
+              className="text-secondary text-sm font-medium mt-1 hover:underline"
+            >
+              {expanded ? 'Read less' : 'Read more'}
+            </button>
+          )}
+        </div>
         <div className="flex items-center justify-between mt-auto">
           <div className="flex items-center">
             {project.techs.map((tech, i) => (

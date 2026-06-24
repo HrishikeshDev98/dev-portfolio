@@ -37,6 +37,22 @@ const Footer = () => {
         ease: 'power3.out',
         scrollTrigger: { trigger: footerRef.current, start: 'top 85%' },
       })
+      gsap.from('.footer-text', {
+        y: 30,
+        opacity: 0,
+        duration: 0.8,
+        ease: 'power3.out',
+        delay: 0.2,
+        scrollTrigger: { trigger: footerRef.current, start: 'top 85%' },
+      })
+      gsap.from('.footer-cta', {
+        y: 30,
+        opacity: 0,
+        duration: 0.8,
+        ease: 'power3.out',
+        delay: 0.35,
+        scrollTrigger: { trigger: footerRef.current, start: 'top 85%' },
+      })
     },
     { scope: footerRef },
   )
@@ -56,14 +72,14 @@ const Footer = () => {
               Ready to take <span className="text-secondary">your</span> digital <br />
               presence to the next level?
             </h2>
-            <p className="text-light font-light mb-6 text-sm">
+            <p className="footer-text text-light font-light mb-6 text-sm">
               Reach out to me today and let&apos;s discuss how I can help you achieve your goals.
             </p>
             <Button
               text="Contact Me Now"
               icon={<FaWhatsapp size={20} />}
               link="https://wa.me/919322882564"
-              className="w-fit mx-auto"
+              className="footer-cta w-fit mx-auto"
               target="_blank"
               rel="noopener noreferrer"
             />

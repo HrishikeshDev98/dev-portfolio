@@ -19,13 +19,32 @@ export type CMSTestimonial = {
   initials: string
 }
 
-const techNameToIcon = Object.values(TECH_STACK).reduce<Record<string, TechIcon>>((acc, t) => {
-  acc[t.name.toLowerCase()] = t
-  return acc
-}, {})
+// Strip everything but letters/digits so "Next.js", "NextJS" and "Next js" all collapse to "nextjs"
+const normalizeTech = (s: string) => s.toLowerCase().replace(/[^a-z0-9]/g, '')
+
+const techNameToIcon = Object.entries(TECH_STACK).reduce<Record<string, TechIcon>>(
+  (acc, [key, tech]) => {
+    acc[key] = tech // record key, e.g. "tailwind", "payload"
+    acc[normalizeTech(tech.name)] = tech // normalized display name, e.g. "tailwindcss"
+    return acc
+  },
+  {},
+)
+
+// Common shorthands authors type in the CMS that don't normalize to a known key
+const TECH_ALIASES: Record<string, string> = {
+  node: 'nodejs',
+  next: 'nextjs',
+  ts: 'typescript',
+}
 
 function mapTechNames(names: { name: string }[]): TechIcon[] {
-  return names.map(({ name }) => techNameToIcon[name.toLowerCase()]).filter(Boolean) as TechIcon[]
+  return names
+    .map(({ name }) => {
+      const key = normalizeTech(name)
+      return techNameToIcon[key] ?? techNameToIcon[TECH_ALIASES[key]]
+    })
+    .filter(Boolean) as TechIcon[]
 }
 
 export async function getProjects(): Promise<CMSProject[]> {

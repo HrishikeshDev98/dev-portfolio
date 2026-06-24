@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 
 import { useGSAP } from '@gsap/react'
@@ -24,27 +24,63 @@ type TestimonialItem = {
   initials: string
 }
 
-const TestimonialCard = ({ name, role, company, quote, initials }: TestimonialItem) => (
-  <div className="relative h-full flex flex-col justify-between border border-white/10 rounded-2xl md:rounded-3xl p-3 md:p-5">
-    <Image
-      src={BgImage}
-      className="absolute inset-0 w-full h-full object-cover rounded-2xl md:rounded-3xl -z-10"
-      alt="bg"
-    />
-    <p className="text-light/80 text-sm md:text-base leading-relaxed font-light">{quote}</p>
-    <div className="flex items-center gap-3 mt-5 md:mt-8">
-      <div className="w-10 h-10 md:w-11 md:h-11 rounded-full bg-secondary/20 border border-secondary/30 flex items-center justify-center shrink-0">
-        <span className="text-secondary text-xs md:text-sm font-semibold">{initials}</span>
-      </div>
+const TestimonialCard = ({ name, role, company, quote, initials }: TestimonialItem) => {
+  const [expanded, setExpanded] = useState(false)
+  const [isClamped, setIsClamped] = useState(false)
+  const textRef = useRef<HTMLParagraphElement>(null)
+
+  useEffect(() => {
+    const el = textRef.current
+    if (!el) return
+    const measure = () => {
+      if (expanded) return
+      setIsClamped(el.scrollHeight > el.clientHeight)
+    }
+    measure()
+    window.addEventListener('resize', measure)
+    return () => window.removeEventListener('resize', measure)
+  }, [quote, expanded])
+
+  return (
+    <div className="relative h-full flex flex-col justify-between border border-white/10 rounded-2xl md:rounded-3xl p-3 md:p-5">
+      <Image
+        src={BgImage}
+        className="absolute inset-0 w-full h-full object-cover rounded-2xl md:rounded-3xl -z-10"
+        alt="bg"
+      />
       <div>
-        <p className="text-light font-semibold text-sm md:text-base leading-tight">{name}</p>
-        <p className="text-light/50 text-xs md:text-sm font-light mt-0.5">
-          {role} · {company}
+        <p
+          ref={textRef}
+          className={`text-light/80 text-sm md:text-base leading-relaxed font-light ${
+            expanded ? '' : 'line-clamp-4'
+          }`}
+        >
+          {quote}
         </p>
+        {isClamped && (
+          <button
+            type="button"
+            onClick={() => setExpanded((prev) => !prev)}
+            className="text-secondary text-xs md:text-sm font-medium mt-2 hover:underline"
+          >
+            {expanded ? 'Read less' : 'Read more'}
+          </button>
+        )}
+      </div>
+      <div className="flex items-center gap-3 mt-5 md:mt-8">
+        <div className="w-10 h-10 md:w-11 md:h-11 rounded-full bg-secondary/20 border border-secondary/30 flex items-center justify-center shrink-0">
+          <span className="text-secondary text-xs md:text-sm font-semibold">{initials}</span>
+        </div>
+        <div>
+          <p className="text-light font-semibold text-sm md:text-base leading-tight">{name}</p>
+          <p className="text-light/50 text-xs md:text-sm font-light mt-0.5">
+            {role} · {company}
+          </p>
+        </div>
       </div>
     </div>
-  </div>
-)
+  )
+}
 
 const Testimonials = ({ cmsItems }: { cmsItems: CMSTestimonial[] }) => {
   const sectionRef = useRef<HTMLElement>(null)
