@@ -53,6 +53,20 @@
   }
 }
 
+@keyframes chat-glow {
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 0 rgba(56, 34, 139, 0.55),
+      0 0 16px 3px rgba(56, 34, 139, 0.5);
+  }
+  50% {
+    box-shadow:
+      0 0 0 10px rgba(56, 34, 139, 0),
+      0 0 30px 8px rgba(56, 34, 139, 0.85);
+  }
+}
+
 @layer components {
   .container {
     @apply container mx-auto px-4;
@@ -64,6 +78,16 @@
 
   .tab-fade-in {
     animation: tab-fade-in 0.4s ease;
+  }
+
+  .chat-glow {
+    animation: chat-glow 2.2s ease-in-out infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .chat-glow {
+      animation: none;
+    }
   }
 
   .section {

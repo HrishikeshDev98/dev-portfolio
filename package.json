@@ -14,11 +14,17 @@
     "payload": "cross-env NODE_OPTIONS=--no-deprecation payload",
     "start": "cross-env NODE_OPTIONS=--no-deprecation next start",
     "seed:notices": "tsx --env-file=.env scripts/seed-notice.ts",
+    "chunk:preview": "tsx scripts/chunk-preview.ts",
+    "reindex": "tsx --env-file=.env scripts/reindex.ts",
+    "rag:test": "tsx --env-file=.env scripts/rag-test.ts",
     "prepare": "husky"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.105.0",
     "@gsap/react": "^2.1.2",
     "@hookform/resolvers": "^5.1.1",
+    "@langchain/core": "^1.2.1",
+    "@langchain/textsplitters": "^1.0.1",
     "@payloadcms/db-mongodb": "3.40.0",
     "@payloadcms/next": "3.40.0",
     "@payloadcms/payload-cloud": "3.40.0",

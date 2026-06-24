@@ -25,7 +25,7 @@ const Button: React.FC<ButtonProps> = ({
 
   const buttonClass = cn(
     'button text-light flex items-center justify-center gap-2 cursor-pointer',
-    iconOnly ? 'p-4' : 'px-10 py-4',
+    iconOnly ? 'p-3 md:p-4' : 'px-6 py-3 text-sm md:px-10 md:py-4 md:text-base',
     sizeClasses[size],
     `button-${variant}`,
     className,

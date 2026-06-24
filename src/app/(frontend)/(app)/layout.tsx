@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import '@/static/css/tailwind.config.css'
 import 'swiper/css'
 
+import ChatWidget from '@/components/chat/ChatWidget'
 import Footer from '@/components/common/footer/footer'
 import Header from '@/components/common/header/header'
 
@@ -27,6 +28,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
         <Header />
         <main>{children}</main>
         <Footer />
+        <ChatWidget />
       </body>
     </html>
   )

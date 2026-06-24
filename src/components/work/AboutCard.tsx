@@ -3,6 +3,8 @@
 import { useState } from 'react'
 import Image from 'next/image'
 
+import Button from '../form/Button'
+
 import BannerGrid from '@/static/images/backgrounds/banner-grid.png'
 import WorkingTogether from '@/static/images/work/working-together.png'
 
@@ -26,11 +28,12 @@ export const AboutCard = () => {
         <Image
           src={BannerGrid}
           alt=""
-          className="absolute top-0 left-0 w-full object-cover object-top z-0"
+          className="absolute top-0 left-0 w-full object-cover object-top z-10"
         />
         <p className="text-light text-[24px] text-center font-semibold leading-snug">
           Tech enthusiast with a passion for development.
         </p>
+        <Button text="Download Resume" className="mt-4 block w-full" />
       </div>
 
       <div className="border border-light/10 rounded-3xl p-6 relative overflow-hidden">
